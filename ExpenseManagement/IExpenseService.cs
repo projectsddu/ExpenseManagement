@@ -16,7 +16,7 @@ namespace ExpenseManagement
         ExpenseModel AddExpense(ExpenseModel expense);
 
         [OperationContract]
-        ExpenseModel DeleteExpense(int ExpenseId);
+        Boolean DeleteExpense(int ExpenseId);
 
         [OperationContract]
         ExpenseModel UpdateExpense(ExpenseModel expense);

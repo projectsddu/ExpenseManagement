@@ -25,19 +25,20 @@ namespace ExpenseManagement
                 // Get user id from cookies.
                 e.ExpenseUserId = 1;
 
-                SqlConnection connection = new SqlConnection("");
+                SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
                 using(connection)
                 {
                     connection.Open();
 
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = connection;
-                    cmd.CommandText = "INSERT INTO Expense (ExpenseId,ExpenseDescription,ExpenseAmount,ExpenseDate,ExpenseUserId) VALUES (null,@EDescription,@EAmount,@EDate,@EUserId)";
+                    cmd.CommandText = "INSERT INTO Expense (ExpenseDescription, ExpenseAmount, ExpenseDate, ExpenseUserId) VALUES (@EDescription, @EAmount, @EDate, @EUserId)";
 
-                    SqlParameter p1 = new SqlParameter("EDescription", expense.ExpenseDescription);
-                    SqlParameter p2 = new SqlParameter("EAmount", expense.ExpenseAmount);
-                    SqlParameter p3 = new SqlParameter("EDate", DateTime.Now);
-                    SqlParameter p4 = new SqlParameter("EUserId", 1);
+                    SqlParameter p1 = new SqlParameter("@EDescription", expense.ExpenseDescription);
+                    SqlParameter p2 = new SqlParameter("@EAmount", expense.ExpenseAmount);
+                    SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
+                    SqlParameter p4 = new SqlParameter("@EUserId", 1);
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -64,9 +65,31 @@ namespace ExpenseManagement
             }
         }
 
-        public ExpenseModel DeleteExpense(int ExpenseId)
+        public Boolean DeleteExpense(int ExpenseId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "DELETE FROM Expense WHERE ExpenseId = " + ExpenseId;
+
+                int row = cmd.ExecuteNonQuery();
+                if(row > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine("Error:", err.ToString());
+                return false;
+            }
         }
 
         public ExpenseModel UpdateExpense(ExpenseModel expense)
