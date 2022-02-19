@@ -13,7 +13,7 @@ namespace ExpenseManagement.Models
         private int expenseId;
         private string expenseDescription;
         private DateTime expenseDate;
-        private int expenseAmount;
+        private float expenseAmount;
         private int expenseUserId;
 
         [DataMember]
@@ -38,7 +38,7 @@ namespace ExpenseManagement.Models
         }
 
         [DataMember]
-        public int ExpenseAmount
+        public float ExpenseAmount
         {
             get { return this.expenseAmount; }
             set { this.expenseAmount = value; }
