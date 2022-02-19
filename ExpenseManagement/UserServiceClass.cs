@@ -8,7 +8,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+
 using System.Diagnostics;
+
+using System.Web;
+
 
 namespace ExpenseManagement
 {
@@ -61,6 +65,7 @@ namespace ExpenseManagement
        
         public UserModel GetUser(int userId)
         {
+
             UserModel user = new UserModel();
             try
             {
