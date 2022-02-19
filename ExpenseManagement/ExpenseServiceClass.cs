@@ -94,7 +94,36 @@ namespace ExpenseManagement
 
         public ExpenseModel UpdateExpense(ExpenseModel expense)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE Expense SET ExpenseDescription=@EDescription,ExpenseAmount=@EAmount,ExpenseDate=@EDate WHERE ExpenseId=" + expense.ExpenseId;
+
+
+                SqlParameter p1 = new SqlParameter("@EDescription", expense.ExpenseDescription);
+                SqlParameter p2 = new SqlParameter("@EAmount", expense.ExpenseAmount);
+                SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
+
+                int rows = cmd.ExecuteNonQuery();
+                if(rows!=0)
+                {
+                    return expense;
+                }
+                else
+                {
+                    expense.ExpenseId = -1;
+                    return expense; 
+                }
+            }
+            catch(Exception err)
+            {
+                expense.ExpenseId = -1;
+                Debug.WriteLine("Error:", err.ToString());
+                return expense;
+            }
         }
 
         public DataSet ViewAllExpense()
