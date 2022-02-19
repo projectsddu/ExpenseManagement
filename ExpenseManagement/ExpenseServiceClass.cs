@@ -12,7 +12,7 @@ using ExpenseManagement.Models;
 
 namespace ExpenseManagement
 {
-    class ExpenseServiceClass : IExpenseService
+    public class ExpenseServiceClass : IExpenseService
     {
         public ExpenseModel AddExpense(ExpenseModel expense)
         {
@@ -100,15 +100,19 @@ namespace ExpenseManagement
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE Expense SET ExpenseDescription=@EDescription,ExpenseAmount=@EAmount,ExpenseDate=@EDate WHERE ExpenseId=" + expense.ExpenseId;
+                cmd.CommandText = "UPDATE Expense SET ExpenseDescription = @EDescription, ExpenseAmount = @EAmount, ExpenseDate = @EDate WHERE ExpenseId = " + expense.ExpenseId;
 
 
                 SqlParameter p1 = new SqlParameter("@EDescription", expense.ExpenseDescription);
                 SqlParameter p2 = new SqlParameter("@EAmount", expense.ExpenseAmount);
                 SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
 
+                cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+                cmd.Parameters.Add(p3);
+
                 int rows = cmd.ExecuteNonQuery();
-                if(rows!=0)
+                if(rows != 0)
                 {
                     return expense;
                 }
