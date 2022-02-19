@@ -128,12 +128,53 @@ namespace ExpenseManagement
 
         public DataSet ViewAllExpense()
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Expense", @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                DataSet ds = new DataSet();
+                da.Fill(ds, "Expense");
+                return ds;
+
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return null;
+            }
         }
 
         public ExpenseModel ViewSingleExpense(int ExpenseId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM Expense WHERE ExpenseId = " + ExpenseId;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                ExpenseModel expense = new ExpenseModel();
+                while(rdr.Read())
+                {
+                    expense.ExpenseId = int.Parse(rdr["ExpenseId"].ToString());
+                    expense.ExpenseDescription = rdr["ExpenseDescription"].ToString();
+                    expense.ExpenseDate = Convert.ToDateTime(rdr["ExpenseDate"].ToString());
+                    expense.ExpenseAmount = float.Parse(rdr["ExpenseAmount"].ToString());
+                    expense.ExpenseUserId = int.Parse(rdr["ExpenseUserId"].ToString());
+                }
+
+                return expense;
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return new ExpenseModel() { 
+                    ExpenseId = -1
+                };
+            }
         }
     }
 }
