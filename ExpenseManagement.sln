@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement", "Expens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagementHostApplication", "ExpenseManagementHostApplication\ExpenseManagementHostApplication.csproj", "{F84F88D7-C32F-44B6-B007-E20E6F88D933}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagementClient", "ExpenseManagementClient\ExpenseManagementClient.csproj", "{65CA3E01-6B12-4395-B65E-94AD54B3B6E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F84F88D7-C32F-44B6-B007-E20E6F88D933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84F88D7-C32F-44B6-B007-E20E6F88D933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84F88D7-C32F-44B6-B007-E20E6F88D933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CA3E01-6B12-4395-B65E-94AD54B3B6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CA3E01-6B12-4395-B65E-94AD54B3B6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CA3E01-6B12-4395-B65E-94AD54B3B6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CA3E01-6B12-4395-B65E-94AD54B3B6E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
