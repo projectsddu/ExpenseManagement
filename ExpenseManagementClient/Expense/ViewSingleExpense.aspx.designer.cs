@@ -11,7 +11,7 @@ namespace ExpenseManagementClient.Expense
 {
 
 
-    public partial class AddExpense
+    public partial class ViewSingleExpense
     {
 
         /// <summary>
@@ -24,39 +24,48 @@ namespace ExpenseManagementClient.Expense
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// TextBoxExpenseDesc control.
+        /// TextBoxID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDesc;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxID;
 
         /// <summary>
-        /// TextBoxExpenseDate control.
+        /// ButtonViewExpense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDate;
+        protected global::System.Web.UI.WebControls.Button ButtonViewExpense;
 
         /// <summary>
-        /// TextBoxExpenseAmount control.
+        /// LabelDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseAmount;
+        protected global::System.Web.UI.WebControls.Label LabelDesc;
 
         /// <summary>
-        /// ButtonAddExpense control.
+        /// LabelAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddExpense;
+        protected global::System.Web.UI.WebControls.Label LabelAmount;
+
+        /// <summary>
+        /// LabelDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDate;
     }
 }

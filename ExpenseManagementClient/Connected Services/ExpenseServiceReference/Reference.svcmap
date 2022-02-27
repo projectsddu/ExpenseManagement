@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b703b989-cf97-49ba-8d9c-8b480957f255" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1e35a22d-bfe2-4f05-b47d-b5d333790bf1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,11 @@
     <MetadataSource Address="http://localhost:8000/ExpenseManagement/ExpenseService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ccfeeb12-4d3a-44db-b309-c9108a439690" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd3" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="b2adc6a9-fd57-4ec7-8581-9478af574739" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd2" />
-    <MetadataFile FileName="ExpenseServiceClass.wsdl" MetadataType="Wsdl" ID="5e8a0eb4-481c-48d3-b687-57a19bea1790" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?wsdl" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="8355c982-07d2-46be-affa-ceb45fbbf15a" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e3874e70-4cc9-44e1-ac91-a619bb6d8e83" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?disco" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="f732c7dc-4b78-4639-90d6-c69910abb7a2" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd1" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="5a930212-71f9-43a6-bdab-ffa541a58210" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="33c75999-5c3d-4c5c-97ef-6218c06372cc" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="93068407-0975-483b-980c-5cee0641d51e" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd1" />
+    <MetadataFile FileName="ExpenseServiceClass.wsdl" MetadataType="Wsdl" ID="0593949b-4d79-4a0b-930d-90e5f14aee07" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="da51b8e7-9922-415e-8d8e-1b00f0bb04e7" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

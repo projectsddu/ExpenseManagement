@@ -151,10 +151,10 @@ namespace ExpenseManagementClient.ExpenseServiceReference {
         System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel> ViewSingleExpenseAsync(int ExpenseId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseService/ViewAllExpense", ReplyAction="http://tempuri.org/IExpenseService/ViewAllExpenseResponse")]
-        System.Data.DataSet ViewAllExpense();
+        ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseService/ViewAllExpense", ReplyAction="http://tempuri.org/IExpenseService/ViewAllExpenseResponse")]
-        System.Threading.Tasks.Task<System.Data.DataSet> ViewAllExpenseAsync();
+        System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -216,11 +216,11 @@ namespace ExpenseManagementClient.ExpenseServiceReference {
             return base.Channel.ViewSingleExpenseAsync(ExpenseId);
         }
         
-        public System.Data.DataSet ViewAllExpense() {
+        public ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense() {
             return base.Channel.ViewAllExpense();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataSet> ViewAllExpenseAsync() {
+        public System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync() {
             return base.Channel.ViewAllExpenseAsync();
         }
     }

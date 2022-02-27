@@ -72,6 +72,7 @@
     <Content Include="Connected Services\ExpenseServiceReference\ExpenseManagementClient.ExpenseServiceReference.ExpenseModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ExpenseServiceReference\ExpenseServiceClass.wsdl" />
     <None Include="Connected Services\ExpenseServiceReference\item.disco" />
     <None Include="Connected Services\ExpenseServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\ExpenseServiceReference\configuration.svcinfo" />
@@ -80,11 +81,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Expense\AddExpense.aspx" />
+    <Content Include="Expense\ViewExpense.aspx" />
+    <Content Include="Expense\ViewSingleExpense.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
-    <None Include="Connected Services\ExpenseServiceReference\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
   </ItemGroup>
   <ItemGroup>
@@ -100,13 +100,26 @@
     <Compile Include="Expense\AddExpense.aspx.designer.cs">
       <DependentUpon>AddExpense.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Expense\ViewExpense.aspx.cs">
+      <DependentUpon>ViewExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expense\ViewExpense.aspx.designer.cs">
+      <DependentUpon>ViewExpense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Expense\ViewSingleExpense.aspx.cs">
+      <DependentUpon>ViewSingleExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expense\ViewSingleExpense.aspx.designer.cs">
+      <DependentUpon>ViewSingleExpense.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ExpenseServiceReference\ExpenseServiceClass.wsdl" />
     <None Include="Connected Services\ExpenseServiceReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
