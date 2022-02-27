@@ -11,7 +11,7 @@ namespace ExpenseManagementClient.Expense
 {
 
 
-    public partial class AddExpense
+    public partial class ViewExpense
     {
 
         /// <summary>
@@ -24,39 +24,21 @@ namespace ExpenseManagementClient.Expense
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// TextBoxExpenseDesc control.
+        /// ButtonViewAllExpense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDesc;
+        protected global::System.Web.UI.WebControls.Button ButtonViewAllExpense;
 
         /// <summary>
-        /// TextBoxExpenseDate control.
+        /// GridViewExpenses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDate;
-
-        /// <summary>
-        /// TextBoxExpenseAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseAmount;
-
-        /// <summary>
-        /// ButtonAddExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddExpense;
+        protected global::System.Web.UI.WebControls.GridView GridViewExpenses;
     }
 }

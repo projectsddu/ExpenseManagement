@@ -65,19 +65,7 @@
   <xs:element name="ViewAllExpenseResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ViewAllExpenseResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:element ref="xs:schema" />
-              <xs:any />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ExpenseManagement.Models" minOccurs="0" name="ViewAllExpenseResult" nillable="true" type="q6:ArrayOfExpenseModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -130,15 +130,39 @@ namespace ExpenseManagement
             }
         }
 
-        public DataSet ViewAllExpense()
+        public List<ExpenseModel> ViewAllExpense()
         {
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Expense", @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-                DataSet ds = new DataSet();
-                da.Fill(ds, "Expense");
-                return ds;
+                //SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Expense", @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //DataSet ds = new DataSet();
+                //da.Fill(ds, "Expense");
+                //return ds;
 
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM Expense";
+                SqlDataReader rdr = cmd.ExecuteReader();
+                List<ExpenseModel> expenses = new List<ExpenseModel>();
+
+                while (rdr.Read())
+                {
+                    ExpenseModel e = new ExpenseModel()
+                    {
+                        ExpenseId = int.Parse(rdr["ExpenseId"].ToString()),
+                        ExpenseDescription = rdr["ExpenseDescription"].ToString(),
+                        ExpenseAmount = int.Parse(rdr["ExpenseAmount"].ToString()),
+                        ExpenseDate = Convert.ToDateTime(rdr["ExpenseDate"].ToString()),
+                        ExpenseUserId = int.Parse(rdr["ExpenseUserId"].ToString())
+
+                    };
+
+                    expenses.Add(e);
+                }
+
+                return expenses;
             }
             catch(Exception error)
             {

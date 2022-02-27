@@ -13,5 +13,27 @@ namespace ExpenseManagementClient.Expense
         {
 
         }
+
+        protected void ButtonAddExpense_Click(object sender, EventArgs e)
+        {
+            ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
+
+            string description = TextBoxExpenseDesc.Text;
+
+            DateTime expenseDate = Convert.ToDateTime(TextBoxExpenseDate.Text);
+
+            float expenseAmount = float.Parse(TextBoxExpenseAmount.Text);
+
+            ExpenseServiceReference.ExpenseModel expense = new ExpenseServiceReference.ExpenseModel()
+            {
+                ExpenseDescription = description,
+                ExpenseAmount = expenseAmount,
+                ExpenseDate = expenseDate
+
+            };
+
+            client.AddExpense(expense);
+
+        }
     }
 }
