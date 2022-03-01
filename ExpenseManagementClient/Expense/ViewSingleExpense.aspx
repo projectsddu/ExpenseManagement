@@ -1,38 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSingleExpense.aspx.cs" Inherits="ExpenseManagementClient.Expense.ViewSingleExpense" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSingleExpense.aspx.cs" Inherits="ExpenseManagementClient.Expense.ViewSingleExpense1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 713px;
-            width: 1319px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
 <body>
+    <!--#include file="~/static/Components/SharedNavbar.html"-->
     <form id="form1" runat="server">
-        <div class="auto-style1">
-            <asp:TextBox ID="TextBoxID" runat="server" Height="92px" Width="508px"></asp:TextBox>
-            <br />
-            <br />
-            <br />
-            <asp:Button ID="ButtonViewExpense" runat="server" Height="66px" OnClick="ButtonViewExpense_Click" Text="View Expense" Width="453px" />
-            <br />
-            <br />
-            <br />
-            <asp:Label ID="LabelDesc" runat="server"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="LabelAmount" runat="server"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="LabelDate" runat="server"></asp:Label>
-            <br />
-            <br />
+        <div>
         </div>
     </form>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

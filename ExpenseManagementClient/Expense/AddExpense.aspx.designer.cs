@@ -11,7 +11,7 @@ namespace ExpenseManagementClient.Expense
 {
 
 
-    public partial class AddExpense
+    public partial class AddExpense1
     {
 
         /// <summary>
@@ -24,39 +24,39 @@ namespace ExpenseManagementClient.Expense
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// TextBoxExpenseDesc control.
+        /// textBoxExpenseDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDesc;
+        protected global::System.Web.UI.WebControls.TextBox textBoxExpenseDesc;
 
         /// <summary>
-        /// TextBoxExpenseDate control.
+        /// textBoxExpenseDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseDate;
+        protected global::System.Web.UI.WebControls.TextBox textBoxExpenseDate;
 
         /// <summary>
-        /// TextBoxExpenseAmount control.
+        /// textBoxExpenseAmt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxExpenseAmount;
+        protected global::System.Web.UI.WebControls.TextBox textBoxExpenseAmt;
 
         /// <summary>
-        /// ButtonAddExpense control.
+        /// buttonAddExpense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddExpense;
+        protected global::System.Web.UI.WebControls.Button buttonAddExpense;
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,21 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace ExpenseManagementClient.Expense
 {
-    public partial class ViewExpense : System.Web.UI.Page
+    public partial class ViewExpense2 : System.Web.UI.Page
     {
+        public ExpenseServiceReference.ExpenseModel[] expenses;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void ButtonViewAllExpense_Click(object sender, EventArgs e)
-        {
             ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
-
-            ExpenseServiceReference.ExpenseModel[] expenses = client.ViewAllExpense();
-
-            GridViewExpenses.DataSource = expenses;
-            GridViewExpenses.DataBind();
+           expenses = client.ViewAllExpense();
+            //ViewState["expenses"] = expenses;
+            //ViewState["expensesLength"]
         }
     }
 }

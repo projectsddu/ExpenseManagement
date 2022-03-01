@@ -7,23 +7,22 @@ using System.Web.UI.WebControls;
 
 namespace ExpenseManagementClient.Expense
 {
-    public partial class AddExpense : System.Web.UI.Page
+    public partial class AddExpense1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void ButtonAddExpense_Click(object sender, EventArgs e)
+        protected void buttonAddExpense_Click(object sender, EventArgs e)
         {
+
             ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
 
-            string description = TextBoxExpenseDesc.Text;
+            string description = textBoxExpenseDesc.Text;
 
-            DateTime expenseDate = Convert.ToDateTime(TextBoxExpenseDate.Text);
-
-            float expenseAmount = float.Parse(TextBoxExpenseAmount.Text);
-
+            DateTime expenseDate = Convert.ToDateTime(textBoxExpenseDate.Text);
+            float expenseAmount = float.Parse(textBoxExpenseAmt.Text);
             ExpenseServiceReference.ExpenseModel expense = new ExpenseServiceReference.ExpenseModel()
             {
                 ExpenseDescription = description,
@@ -33,7 +32,6 @@ namespace ExpenseManagementClient.Expense
             };
 
             client.AddExpense(expense);
-
         }
     }
 }
