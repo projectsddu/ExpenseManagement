@@ -81,6 +81,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Expense\AddExpense.aspx" />
+    <Content Include="Expense\UpdateExpense.aspx" />
     <Content Include="Expense\ViewExpense.aspx" />
     <Content Include="Expense\ViewSingleExpense.aspx" />
     <Content Include="Global.asax" />
@@ -123,6 +124,13 @@
     <Compile Include="Expense\AddExpense.aspx.designer.cs">
       <DependentUpon>AddExpense.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Expense\UpdateExpense.aspx.cs">
+      <DependentUpon>UpdateExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expense\UpdateExpense.aspx.designer.cs">
+      <DependentUpon>UpdateExpense.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Expense\ViewExpense.aspx.cs">
       <DependentUpon>ViewExpense.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,15 +151,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ExpenseServiceReference\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ExpenseServiceReference\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ExpenseServiceReference\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="libman.json" />
     <Content Include="lib\twitter-bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="lib\twitter-bootstrap\css\bootstrap-grid.min.css.map" />
@@ -260,6 +259,15 @@
     <Content Include="lib\twitter-bootstrap\scss\mixins\_visually-hidden.scss" />
     <Content Include="lib\twitter-bootstrap\scss\utilities\_api.scss" />
     <Content Include="lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
+    <None Include="Connected Services\ExpenseServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
