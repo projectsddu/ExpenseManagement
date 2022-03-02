@@ -13,16 +13,20 @@ namespace ExpenseManagementClient.Expense
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
+            if (!IsPostBack)
+            {
+                
+                ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
 
-            id = Convert.ToInt32(Request.QueryString["id"]);
+                id = Convert.ToInt32(Request.QueryString["id"]);
 
-            ExpenseServiceReference.ExpenseModel expense = client.ViewSingleExpense(id);
+                ExpenseServiceReference.ExpenseModel expense = client.ViewSingleExpense(id);
 
-            textBoxExpenseDesc.Text = expense.ExpenseDescription;
-            textBoxExpenseDate.Text = expense.ExpenseDate.ToString("yyyy-MM-dd");
-            textBoxExpenseAmt.Text = expense.ExpenseAmount.ToString();
+                textBoxExpenseDesc.Text = expense.ExpenseDescription;
+                textBoxExpenseDate.Text = expense.ExpenseDate.ToString("yyyy-MM-dd");
+                textBoxExpenseAmt.Text = expense.ExpenseAmount.ToString();
 
+            }
         }
 
         protected void buttonUpdateExpense_Click(object sender, EventArgs e)
@@ -35,8 +39,8 @@ namespace ExpenseManagementClient.Expense
             Debug.WriteLine(textBoxExpenseDate.Text);
             Debug.WriteLine(textBoxExpenseAmt.Text);
 
-            //string expenseDescription = /*textBoxExpenseDesc.Text*/;
-            string expenseDescription = "keval";
+            string expenseDescription = textBoxExpenseDesc.Text;
+            //string expenseDescription = "keval";
 
             DateTime expenseDate = Convert.ToDateTime(textBoxExpenseDate.Text);
 

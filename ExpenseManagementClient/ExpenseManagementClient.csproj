@@ -81,6 +81,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Expense\AddExpense.aspx" />
+    <Content Include="Expense\DeleteExpense.aspx" />
     <Content Include="Expense\UpdateExpense.aspx" />
     <Content Include="Expense\ViewExpense.aspx" />
     <Content Include="Expense\ViewSingleExpense.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="Expense\AddExpense.aspx.designer.cs">
       <DependentUpon>AddExpense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Expense\DeleteExpense.aspx.cs">
+      <DependentUpon>DeleteExpense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expense\DeleteExpense.aspx.designer.cs">
+      <DependentUpon>DeleteExpense.aspx</DependentUpon>
     </Compile>
     <Compile Include="Expense\UpdateExpense.aspx.cs">
       <DependentUpon>UpdateExpense.aspx</DependentUpon>

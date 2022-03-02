@@ -14,7 +14,7 @@
     <form id="form1" class="container mt-4" runat="server">
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Expense Description</label>
+            <label for="exampleInputEmail1" class="form-label"><b>Expense Description</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
             <asp:TextBox class="form-control" ID="textBoxExpenseDesc" aria-describedby="expenseDesc" runat="server"></asp:TextBox>
             <div id="expenseDesc" class="form-text">Enter the expense description.</div>
@@ -24,7 +24,7 @@
 
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Expense date</label>
+            <label for="exampleInputEmail1" class="form-label"><b>Expense Date</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
             <asp:TextBox class="form-control" type="date" ID="textBoxExpenseDate" aria-describedby="expenseDate" runat="server"></asp:TextBox>
             <div id="expenseDate" class="form-text">Enter the expense date</div>
@@ -32,7 +32,7 @@
 
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Expense amount</label>
+            <label for="exampleInputEmail1" class="form-label"><b>Expense Amount</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
             <asp:TextBox class="form-control" type="number" ID="textBoxExpenseAmt" aria-describedby="expenseAmt" runat="server"></asp:TextBox>
             <div id="expenseAmt" class="form-text">
