@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExpenseServiceClass" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_policy">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PaymentServiceClass" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -96,7 +96,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_AddExpense_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_AddPayment_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -115,7 +115,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_AddExpense_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_AddPayment_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -134,7 +134,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_DeleteExpense_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_DeletePayment_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -153,7 +153,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_DeleteExpense_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_DeletePayment_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -172,7 +172,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_UpdateExpense_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_UpdatePayment_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -191,7 +191,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_UpdateExpense_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_UpdatePayment_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -210,7 +210,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_ViewSingleExpense_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_ViewSinglePayment_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -229,7 +229,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_ViewSingleExpense_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_ViewSinglePayment_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -248,7 +248,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_ViewAllExpense_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_ViewAllPayment_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -267,7 +267,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IExpenseService_ViewAllExpense_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPaymentService_ViewAllPayment_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -288,127 +288,127 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/ExpenseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExpenseManagement.Models" />
+      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExpenseManagement.Models" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IExpenseService_AddExpense_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddExpense" />
+  <wsdl:message name="IPaymentService_AddPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPayment" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_AddExpense_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddExpenseResponse" />
+  <wsdl:message name="IPaymentService_AddPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPaymentResponse" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_DeleteExpense_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteExpense" />
+  <wsdl:message name="IPaymentService_DeletePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePayment" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_DeleteExpense_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteExpenseResponse" />
+  <wsdl:message name="IPaymentService_DeletePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePaymentResponse" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_UpdateExpense_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateExpense" />
+  <wsdl:message name="IPaymentService_UpdatePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePayment" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_UpdateExpense_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateExpenseResponse" />
+  <wsdl:message name="IPaymentService_UpdatePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentResponse" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_ViewSingleExpense_InputMessage">
-    <wsdl:part name="parameters" element="tns:ViewSingleExpense" />
+  <wsdl:message name="IPaymentService_ViewSinglePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewSinglePayment" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_ViewSingleExpense_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ViewSingleExpenseResponse" />
+  <wsdl:message name="IPaymentService_ViewSinglePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewSinglePaymentResponse" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_ViewAllExpense_InputMessage">
-    <wsdl:part name="parameters" element="tns:ViewAllExpense" />
+  <wsdl:message name="IPaymentService_ViewAllPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllPayment" />
   </wsdl:message>
-  <wsdl:message name="IExpenseService_ViewAllExpense_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ViewAllExpenseResponse" />
+  <wsdl:message name="IPaymentService_ViewAllPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllPaymentResponse" />
   </wsdl:message>
-  <wsdl:portType name="IExpenseService">
-    <wsdl:operation name="AddExpense">
-      <wsdl:input wsaw:Action="http://tempuri.org/IExpenseService/AddExpense" message="tns:IExpenseService_AddExpense_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IExpenseService/AddExpenseResponse" message="tns:IExpenseService_AddExpense_OutputMessage" />
+  <wsdl:portType name="IPaymentService">
+    <wsdl:operation name="AddPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/AddPayment" message="tns:IPaymentService_AddPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/AddPaymentResponse" message="tns:IPaymentService_AddPayment_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteExpense">
-      <wsdl:input wsaw:Action="http://tempuri.org/IExpenseService/DeleteExpense" message="tns:IExpenseService_DeleteExpense_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IExpenseService/DeleteExpenseResponse" message="tns:IExpenseService_DeleteExpense_OutputMessage" />
+    <wsdl:operation name="DeletePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/DeletePayment" message="tns:IPaymentService_DeletePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/DeletePaymentResponse" message="tns:IPaymentService_DeletePayment_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateExpense">
-      <wsdl:input wsaw:Action="http://tempuri.org/IExpenseService/UpdateExpense" message="tns:IExpenseService_UpdateExpense_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IExpenseService/UpdateExpenseResponse" message="tns:IExpenseService_UpdateExpense_OutputMessage" />
+    <wsdl:operation name="UpdatePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/UpdatePayment" message="tns:IPaymentService_UpdatePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/UpdatePaymentResponse" message="tns:IPaymentService_UpdatePayment_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ViewSingleExpense">
-      <wsdl:input wsaw:Action="http://tempuri.org/IExpenseService/ViewSingleExpense" message="tns:IExpenseService_ViewSingleExpense_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IExpenseService/ViewSingleExpenseResponse" message="tns:IExpenseService_ViewSingleExpense_OutputMessage" />
+    <wsdl:operation name="ViewSinglePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/ViewSinglePayment" message="tns:IPaymentService_ViewSinglePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/ViewSinglePaymentResponse" message="tns:IPaymentService_ViewSinglePayment_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ViewAllExpense">
-      <wsdl:input wsaw:Action="http://tempuri.org/IExpenseService/ViewAllExpense" message="tns:IExpenseService_ViewAllExpense_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IExpenseService/ViewAllExpenseResponse" message="tns:IExpenseService_ViewAllExpense_OutputMessage" />
+    <wsdl:operation name="ViewAllPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentService/ViewAllPayment" message="tns:IPaymentService_ViewAllPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentService/ViewAllPaymentResponse" message="tns:IPaymentService_ViewAllPayment_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WSHttpBinding_IExpenseService" type="tns:IExpenseService">
-    <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_policy" />
+  <wsdl:binding name="WSHttpBinding_IPaymentService" type="tns:IPaymentService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="AddExpense">
-      <soap12:operation soapAction="http://tempuri.org/IExpenseService/AddExpense" style="document" />
+    <wsdl:operation name="AddPayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentService/AddPayment" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_AddExpense_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_AddPayment_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_AddExpense_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_AddPayment_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteExpense">
-      <soap12:operation soapAction="http://tempuri.org/IExpenseService/DeleteExpense" style="document" />
+    <wsdl:operation name="DeletePayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentService/DeletePayment" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_DeleteExpense_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_DeletePayment_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_DeleteExpense_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_DeletePayment_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateExpense">
-      <soap12:operation soapAction="http://tempuri.org/IExpenseService/UpdateExpense" style="document" />
+    <wsdl:operation name="UpdatePayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentService/UpdatePayment" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_UpdateExpense_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_UpdatePayment_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_UpdateExpense_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_UpdatePayment_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ViewSingleExpense">
-      <soap12:operation soapAction="http://tempuri.org/IExpenseService/ViewSingleExpense" style="document" />
+    <wsdl:operation name="ViewSinglePayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentService/ViewSinglePayment" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_ViewSingleExpense_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_ViewSinglePayment_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_ViewSingleExpense_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_ViewSinglePayment_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ViewAllExpense">
-      <soap12:operation soapAction="http://tempuri.org/IExpenseService/ViewAllExpense" style="document" />
+    <wsdl:operation name="ViewAllPayment">
+      <soap12:operation soapAction="http://tempuri.org/IPaymentService/ViewAllPayment" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_ViewAllExpense_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_ViewAllPayment_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IExpenseService_ViewAllExpense_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPaymentService_ViewAllPayment_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ExpenseServiceClass">
-    <wsdl:port name="WSHttpBinding_IExpenseService" binding="tns:WSHttpBinding_IExpenseService">
-      <soap12:address location="http://localhost:8000/ExpenseManagement/ExpenseService/" />
+  <wsdl:service name="PaymentServiceClass">
+    <wsdl:port name="WSHttpBinding_IPaymentService" binding="tns:WSHttpBinding_IPaymentService">
+      <soap12:address location="http://localhost:8000/ExpenseManagement/PaymentService/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8000/ExpenseManagement/ExpenseService/</wsa10:Address>
+        <wsa10:Address>http://localhost:8000/ExpenseManagement/PaymentService/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>JENIL-GANDHI\Admin</Upn>
         </Identity>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="53f81629-9701-481a-89b8-e184da99dbfb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/ExpenseManagement/PaymentService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PaymentServiceClass.wsdl" MetadataType="Wsdl" ID="512efb0b-f492-440d-b26b-38d3eaed46bc" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="47dc91c7-4bd9-4bec-8ef4-4954bd3df01f" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="6c5f7e93-a665-4cea-bf76-ba29b52f6e16" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="21e0428e-f8b9-4968-bc58-6cc3e4145ba1" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="2fb01f1e-b8be-4feb-855e-a4c1e90ad922" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
