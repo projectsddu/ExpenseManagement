@@ -83,6 +83,15 @@
     <Content Include="Connected Services\PaymentServiceReference\ExpenseManagementClient.PaymentServiceReference.PaymentModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ExpenseServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ExpenseServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\PaymentServiceReference\item.disco" />
     <None Include="Connected Services\PaymentServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\PaymentServiceReference\configuration.svcinfo" />
@@ -118,6 +127,10 @@
     <Content Include="lib\twitter-bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="lib\twitter-bootstrap\js\bootstrap.js" />
     <Content Include="lib\twitter-bootstrap\js\bootstrap.min.js" />
+    <Content Include="Payment\AddPayment.aspx" />
+    <Content Include="Payment\DeletePayment.aspx" />
+    <Content Include="Payment\UpdatePayment.aspx" />
+    <Content Include="Payment\ViewPayment.aspx" />
     <Content Include="static\Components\SharedNavbar.html" />
     <Content Include="Web.config" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
@@ -170,6 +183,34 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\AddPayment.aspx.cs">
+      <DependentUpon>AddPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\AddPayment.aspx.designer.cs">
+      <DependentUpon>AddPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\DeletePayment.aspx.cs">
+      <DependentUpon>DeletePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\DeletePayment.aspx.designer.cs">
+      <DependentUpon>DeletePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\UpdatePayment.aspx.cs">
+      <DependentUpon>UpdatePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\UpdatePayment.aspx.designer.cs">
+      <DependentUpon>UpdatePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment\ViewPayment.aspx.cs">
+      <DependentUpon>ViewPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment\ViewPayment.aspx.designer.cs">
+      <DependentUpon>ViewPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -282,15 +323,6 @@
     <Content Include="lib\twitter-bootstrap\scss\mixins\_visually-hidden.scss" />
     <Content Include="lib\twitter-bootstrap\scss\utilities\_api.scss" />
     <Content Include="lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
-    <None Include="Connected Services\ExpenseServiceReference\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ExpenseServiceReference\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ExpenseServiceReference\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\PaymentServiceReference\item.xsd">
       <SubType>Designer</SubType>
     </None>

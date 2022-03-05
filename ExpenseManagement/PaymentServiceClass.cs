@@ -180,7 +180,38 @@ namespace ExpenseManagement
 
         public PaymentModel ViewSinglePayment(int paymentId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM Payment WHERE PaymentId = " + paymentId;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                PaymentModel payment = new PaymentModel();
+                while (rdr.Read())
+                {
+                    payment.PaymentId = int.Parse(rdr["PaymentId"].ToString());
+                    payment.PaymentDescription = rdr["PaymentDescription"].ToString();
+                    payment.PaymentDate = Convert.ToDateTime(rdr["PaymentDate"].ToString());
+                    payment.PaymentAmount = float.Parse(rdr["PaymentAmount"].ToString());
+                    payment.PaymentFromUser = rdr["PaymentFromUser"].ToString();
+                    payment.PaymentToUser = rdr["PaymentToUser"].ToString();
+                }
+
+                return payment;
+
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return new PaymentModel()
+                {
+                    PaymentId = -1
+                };
+            }
         }
     }
 }
