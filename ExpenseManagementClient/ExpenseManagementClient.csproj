@@ -69,6 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Authentication\Login.aspx" />
+    <Content Include="Authentication\Register.aspx" />
     <Content Include="Connected Services\ExpenseServiceReference\ExpenseManagementClient.ExpenseServiceReference.ExpenseModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -137,6 +139,20 @@
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authentication\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authentication\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ExpenseServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
