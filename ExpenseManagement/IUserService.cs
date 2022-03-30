@@ -12,7 +12,10 @@ namespace ExpenseManagement
     public interface IUserService
     {
         [OperationContract]
-        UserModel AddUser(UserModel user);
+        string AddUser(UserModel user);
+
+        [OperationContract]
+        bool LoginUser(string username, string password);
 
         [OperationContract]
         UserModel GetUser(int userId);

@@ -20,9 +20,13 @@ namespace ExpenseManagement
     public class UserServiceClass : IUserService
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        public UserModel AddUser(UserModel user)
+        public string AddUser(UserModel user)
         {
             UserModel newUser = new UserModel();
+            if(user.UserEmail=="" || user.UserName==""||user.UserPassword=="")
+            {
+                return "All fields are required!";
+            }
             try
             {
                 SqlConnection con = new SqlConnection(connectionString);
@@ -56,12 +60,10 @@ namespace ExpenseManagement
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                return new UserModel() { 
-                    UserName = error.Message
-                };
+                return "Error";
             }
 
-            return newUser;
+            return "Success";
         }
        
         public UserModel GetUser(int userId)
@@ -99,6 +101,43 @@ namespace ExpenseManagement
                 };
             }
             return user;
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM UserTable WHERE UserName='"+username+"' AND UserPassword='"+password+"'";
+                Debug.WriteLine(cmd.CommandText);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                int cnt = 0;
+                while(rdr.Read())
+                {
+                    cnt++;
+                }
+
+                Debug.WriteLine("Rows:");
+                Debug.WriteLine(cnt);
+                if(cnt==0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+            
         }
     }
 }

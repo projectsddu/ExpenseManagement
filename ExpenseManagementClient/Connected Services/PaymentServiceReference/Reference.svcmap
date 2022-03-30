@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41024ad1-9448-4862-8e04-070a81310ab7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0f61f39f-0f85-410c-b259-31c450316a10" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8000/ExpenseManagement/PaymentService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PaymentServiceClass.wsdl" MetadataType="Wsdl" ID="80f0bc2a-39aa-422f-8d7d-44939ffac535" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="2d13300b-83bd-463b-8f3c-d77e73064f4d" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="765cd638-b012-43b9-a650-c20b9429d154" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="d9f6f345-954c-4fd0-b1ed-3a56426b5daf" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="598d3e0e-5a18-4896-bb96-c91b26743df4" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?disco" />
+    <MetadataFile FileName="PaymentServiceClass.wsdl" MetadataType="Wsdl" ID="c02245e5-7edc-470e-a744-3f5f6d9c6a55" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="b0927eaa-2d17-490a-9336-7afda17816c2" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="a87b3c3f-cc89-451f-afd7-ad88474d7d64" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="91f2e5c7-a6de-4afe-9a2d-2ceb62d5f36a" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="547c73f1-194a-4d53-bea2-c6b582c6f9df" SourceId="1" SourceUrl="http://localhost:8000/ExpenseManagement/PaymentService/?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

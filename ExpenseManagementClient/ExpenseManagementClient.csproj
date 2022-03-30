@@ -101,6 +101,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Connected Services\UserServiceReference\ExpenseManagementClient.UserServiceReference.UserModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\UserServiceReference\item.disco" />
+    <None Include="Connected Services\UserServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\UserServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\UserServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Expense\AddExpense.aspx" />
     <Content Include="Expense\DeleteExpense.aspx" />
     <Content Include="Expense\UpdateExpense.aspx" />
@@ -134,6 +144,7 @@
     <Content Include="Payment\DeletePayment.aspx" />
     <Content Include="Payment\UpdatePayment.aspx" />
     <Content Include="Payment\ViewPayment.aspx" />
+    <Content Include="static\Components\LoginNavbar.html" />
     <Content Include="static\Components\SharedNavbar.html" />
     <Content Include="Web.config" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
@@ -159,6 +170,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\PaymentServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -357,6 +373,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PaymentServiceReference\PaymentServiceClass.wsdl" />
+    <None Include="Connected Services\UserServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\UserServiceClass.wsdl" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -375,6 +401,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ExpenseServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\PaymentServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\UserServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
