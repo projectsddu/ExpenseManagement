@@ -149,10 +149,10 @@ namespace ExpenseManagementClient.UserServiceReference {
         System.Threading.Tasks.Task<string> AddUserAsync(ExpenseManagementClient.UserServiceReference.UserModel user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/LoginUser", ReplyAction="http://tempuri.org/IUserService/LoginUserResponse")]
-        bool LoginUser(string username, string password);
+        int LoginUser(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/LoginUser", ReplyAction="http://tempuri.org/IUserService/LoginUserResponse")]
-        System.Threading.Tasks.Task<bool> LoginUserAsync(string username, string password);
+        System.Threading.Tasks.Task<int> LoginUserAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUser", ReplyAction="http://tempuri.org/IUserService/GetUserResponse")]
         ExpenseManagementClient.UserServiceReference.UserModel GetUser(int userId);
@@ -196,11 +196,11 @@ namespace ExpenseManagementClient.UserServiceReference {
             return base.Channel.AddUserAsync(user);
         }
         
-        public bool LoginUser(string username, string password) {
+        public int LoginUser(string username, string password) {
             return base.Channel.LoginUser(username, password);
         }
         
-        public System.Threading.Tasks.Task<bool> LoginUserAsync(string username, string password) {
+        public System.Threading.Tasks.Task<int> LoginUserAsync(string username, string password) {
             return base.Channel.LoginUserAsync(username, password);
         }
         

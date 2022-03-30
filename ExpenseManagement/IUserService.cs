@@ -15,7 +15,7 @@ namespace ExpenseManagement
         string AddUser(UserModel user);
 
         [OperationContract]
-        bool LoginUser(string username, string password);
+        int LoginUser(string username, string password);
 
         [OperationContract]
         UserModel GetUser(int userId);

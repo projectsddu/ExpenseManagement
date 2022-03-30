@@ -12,6 +12,52 @@ namespace ExpenseManagement
     public class PaymentServiceClass : IPaymentService
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        public int getIdByUsername(string username)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            using (connection)
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM UserTable WHERE UserName = '" + username + "'" ;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                int userId = -1;
+                while(rdr.Read())
+                {
+                    userId = int.Parse(rdr["UserId"].ToString());
+                }
+
+                return userId;
+            }
+        }
+
+        public string getUserNameById(int id)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            using (connection)
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM UserTable WHERE UserId = " + id;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                string username = "";
+                while (rdr.Read())
+                {
+                    username = rdr["UserName"].ToString();
+                }
+
+                return username;
+            }
+        }
         public PaymentModel AddPayment(PaymentModel payment)
         {
             try
@@ -19,8 +65,8 @@ namespace ExpenseManagement
                 PaymentModel p = new PaymentModel();
                 p.PaymentDescription = payment.PaymentDescription;
                 p.PaymentDate = payment.PaymentDate.ToString() == "" ? DateTime.Now : payment.PaymentDate;
-                p.PaymentFromUser = "Admin";
-                p.PaymentToUser = payment.PaymentToUser;
+                p.PaymentFromUser = payment.PaymentFromUser;
+                p.PaymentToUser = getIdByUsername(payment.PaymentToUser).ToString();
                 p.PaymentAmount = payment.PaymentAmount;
 
 
@@ -106,21 +152,21 @@ namespace ExpenseManagement
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE Payment SET PaymentDescription = @EDescription, PaymentAmount = @EAmount, PaymentDate = @EDate,PaymentFromUser = @EFromUser,PaymentToUser=@EToUser WHERE PaymentId = " + payment.PaymentId;
+                cmd.CommandText = "UPDATE Payment SET PaymentDescription = @EDescription WHERE PaymentId = " + payment.PaymentId;
 
                 //PaymentDescription, PaymentAmount, PaymentDate, PaymentFromUser,PaymentToUser
                 SqlParameter p1 = new SqlParameter("@EDescription", payment.PaymentDescription);
-                SqlParameter p2 = new SqlParameter("@EAmount", payment.PaymentAmount);
-                SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
-                SqlParameter p4 = new SqlParameter("@EFromUser", "Admin");
-                SqlParameter p5 = new SqlParameter("@EToUser", payment.PaymentToUser);
+                //SqlParameter p2 = new SqlParameter("@EAmount", payment.PaymentAmount);
+                //SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
+                //SqlParameter p4 = new SqlParameter("@EFromUser", payment.PaymentFromUser);
+                //SqlParameter p5 = new SqlParameter("@EToUser", getIdByUsername(payment.PaymentToUser).ToString());
                 
 
                 cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p3);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p5);
+                //cmd.Parameters.Add(p2);
+                //cmd.Parameters.Add(p3);
+                //cmd.Parameters.Add(p4);
+                //cmd.Parameters.Add(p5);
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows != 0)
@@ -142,15 +188,16 @@ namespace ExpenseManagement
             }
         }
 
-        public List<PaymentModel> ViewAllPayment()
+        public List<PaymentModel> ViewAllPayment(int userId)
         {
+            string id = userId.ToString();
             try
             {
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM Payment";
+                cmd.CommandText = "SELECT * FROM Payment WHERE PaymentFromUser = '" + id + "'";
                 SqlDataReader rdr = cmd.ExecuteReader();
                 List<PaymentModel> payments = new List<PaymentModel>();
 
@@ -162,8 +209,8 @@ namespace ExpenseManagement
                         PaymentDescription = rdr["PaymentDescription"].ToString(),
                         PaymentAmount = float.Parse(rdr["PaymentAmount"].ToString()),
                         PaymentDate = Convert.ToDateTime(rdr["PaymentDate"].ToString()),
-                        PaymentFromUser = rdr["PaymentFromUser"].ToString(),
-                        PaymentToUser = rdr["PaymentToUser"].ToString(),
+                        PaymentFromUser = getUserNameById(int.Parse(rdr["PaymentFromUser"].ToString())),
+                        PaymentToUser = getUserNameById(int.Parse(rdr["PaymentToUser"].ToString())),
                     };
 
                     payments.Add(p);
@@ -197,8 +244,8 @@ namespace ExpenseManagement
                     payment.PaymentDescription = rdr["PaymentDescription"].ToString();
                     payment.PaymentDate = Convert.ToDateTime(rdr["PaymentDate"].ToString());
                     payment.PaymentAmount = float.Parse(rdr["PaymentAmount"].ToString());
-                    payment.PaymentFromUser = rdr["PaymentFromUser"].ToString();
-                    payment.PaymentToUser = rdr["PaymentToUser"].ToString();
+                    payment.PaymentFromUser = getUserNameById(int.Parse(rdr["PaymentFromUser"].ToString()));
+                    payment.PaymentToUser = getUserNameById(int.Parse(rdr["PaymentToUser"].ToString()));
                 }
 
                 return payment;

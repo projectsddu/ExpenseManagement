@@ -104,6 +104,16 @@
     <Content Include="Connected Services\UserServiceReference\ExpenseManagementClient.UserServiceReference.UserModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\PaymentServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PaymentServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PaymentServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PaymentServiceReference\PaymentServiceClass.wsdl" />
     <None Include="Connected Services\UserServiceReference\item.disco" />
     <None Include="Connected Services\UserServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\UserServiceReference\configuration.svcinfo" />
@@ -363,16 +373,6 @@
     <Content Include="lib\twitter-bootstrap\scss\mixins\_visually-hidden.scss" />
     <Content Include="lib\twitter-bootstrap\scss\utilities\_api.scss" />
     <Content Include="lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
-    <None Include="Connected Services\PaymentServiceReference\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PaymentServiceReference\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PaymentServiceReference\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PaymentServiceReference\PaymentServiceClass.wsdl" />
     <None Include="Connected Services\UserServiceReference\item.xsd">
       <SubType>Designer</SubType>
     </None>

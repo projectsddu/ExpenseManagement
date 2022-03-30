@@ -31,7 +31,14 @@ namespace ExpenseManagementClient.Expense
 
             if(status)
             {
-                Response.Redirect("/Expense/ViewExpense.aspx");
+                //Response.Redirect("/Expense/ViewExpense.aspx");
+                ViewState["message"] = "Expense deleted successfully!";
+                ViewState["status"] = "success";
+            }
+            else
+            {
+                ViewState["message"] = "Error! While deleting expense!";
+                ViewState["status"] = "danger";
             }
 
             Debug.WriteLine(status);

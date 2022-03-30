@@ -26,7 +26,14 @@ namespace ExpenseManagementClient.Payment
 
             if (status)
             {
-                Response.Redirect("/Payment/ViewPayment.aspx");
+                //Response.Redirect("/Payment/ViewPayment.aspx");
+                ViewState["message"] = "Payment deleted successfully!";
+                ViewState["status"] = "success";
+            }
+            else
+            {
+                ViewState["message"] = "Error! While deleting payment!";
+                ViewState["status"] = "danger";
             }
 
             Debug.WriteLine(status);

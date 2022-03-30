@@ -14,7 +14,8 @@ namespace ExpenseManagementClient.Payment
         {
             PaymentServiceReference.PaymentServiceClient client = new PaymentServiceReference.PaymentServiceClient();
 
-            payments = client.ViewAllPayment();
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
+            payments = client.ViewAllPayment(userId);
         }
     }
 }

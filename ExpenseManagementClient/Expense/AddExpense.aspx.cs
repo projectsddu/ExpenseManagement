@@ -23,15 +23,28 @@ namespace ExpenseManagementClient.Expense
 
             DateTime expenseDate = Convert.ToDateTime(textBoxExpenseDate.Text);
             float expenseAmount = float.Parse(textBoxExpenseAmt.Text);
+
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
             ExpenseServiceReference.ExpenseModel expense = new ExpenseServiceReference.ExpenseModel()
             {
                 ExpenseDescription = description,
                 ExpenseAmount = expenseAmount,
-                ExpenseDate = expenseDate
-
+                ExpenseDate = expenseDate,
+                ExpenseUserId = userId
             };
 
-            client.AddExpense(expense);
+            ExpenseServiceReference.ExpenseModel returedExpense = client.AddExpense(expense);
+
+            if(returedExpense.ExpenseId == -1)
+            {
+                ViewState["message"] = "Error! While adding expense!";
+                ViewState["status"] = "danger";
+            }
+            else
+            {
+                ViewState["message"] = "Expense added successfully!";
+                ViewState["status"] = "success";
+            }
         }
     }
 }

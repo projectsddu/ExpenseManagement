@@ -15,6 +15,7 @@ namespace ExpenseManagement
     public class ExpenseServiceClass : IExpenseService
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpenseManagementDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         public ExpenseModel AddExpense(ExpenseModel expense)
         {
             try
@@ -24,7 +25,7 @@ namespace ExpenseManagement
                 e.ExpenseDate = DateTime.Now;
                 e.ExpenseAmount = expense.ExpenseAmount;
                 // Get user id from cookies.
-                e.ExpenseUserId = 1;
+                e.ExpenseUserId = expense.ExpenseUserId;
 
                 SqlConnection connection = new SqlConnection(connectionString);
 
@@ -39,7 +40,7 @@ namespace ExpenseManagement
                     SqlParameter p1 = new SqlParameter("@EDescription", expense.ExpenseDescription);
                     SqlParameter p2 = new SqlParameter("@EAmount", expense.ExpenseAmount);
                     SqlParameter p3 = new SqlParameter("@EDate", DateTime.Now);
-                    SqlParameter p4 = new SqlParameter("@EUserId", 1);
+                    SqlParameter p4 = new SqlParameter("@EUserId", expense.ExpenseUserId);
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -131,7 +132,7 @@ namespace ExpenseManagement
             }
         }
 
-        public List<ExpenseModel> ViewAllExpense()
+        public List<ExpenseModel> ViewAllExpense(int userId)
         {
             try
             {
@@ -144,7 +145,7 @@ namespace ExpenseManagement
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM Expense";
+                cmd.CommandText = "SELECT * FROM Expense WHERE ExpenseUserId = " + userId;
                 SqlDataReader rdr = cmd.ExecuteReader();
                 List<ExpenseModel> expenses = new List<ExpenseModel>();
 

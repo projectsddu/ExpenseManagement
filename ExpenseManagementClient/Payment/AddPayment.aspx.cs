@@ -22,16 +22,28 @@ namespace ExpenseManagementClient.Payment
             DateTime paymentDate = Convert.ToDateTime(textBoxPaymentDate.Text);
             float paymentAmount = float.Parse(textBoxPaymentAmt.Text);
             string paymentToUser = textBoxPaymentReceiver.Text;
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
 
             PaymentServiceReference.PaymentModel payment = new PaymentServiceReference.PaymentModel()
             {
                 PaymentDescription = paymentDescription,
                 PaymentDate = paymentDate,
                 PaymentAmount = paymentAmount,
+                PaymentFromUser = userId.ToString(),
                 PaymentToUser = paymentToUser
             };
 
-            client.AddPayment(payment);
+            PaymentServiceReference.PaymentModel returnedPayment = client.AddPayment(payment);
+            if(returnedPayment.PaymentId == -1)
+            {
+                ViewState["message"] = "Error! While adding payment!";
+                ViewState["status"] = "danger";
+            }
+            else
+            {
+                ViewState["message"] = "Payment added successfully!";
+                ViewState["status"] = "success";
+            }
         }
     }
 }

@@ -167,10 +167,10 @@ namespace ExpenseManagementClient.PaymentServiceReference {
         System.Threading.Tasks.Task<ExpenseManagementClient.PaymentServiceReference.PaymentModel> ViewSinglePaymentAsync(int paymentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPaymentService/ViewAllPayment", ReplyAction="http://tempuri.org/IPaymentService/ViewAllPaymentResponse")]
-        ExpenseManagementClient.PaymentServiceReference.PaymentModel[] ViewAllPayment();
+        ExpenseManagementClient.PaymentServiceReference.PaymentModel[] ViewAllPayment(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPaymentService/ViewAllPayment", ReplyAction="http://tempuri.org/IPaymentService/ViewAllPaymentResponse")]
-        System.Threading.Tasks.Task<ExpenseManagementClient.PaymentServiceReference.PaymentModel[]> ViewAllPaymentAsync();
+        System.Threading.Tasks.Task<ExpenseManagementClient.PaymentServiceReference.PaymentModel[]> ViewAllPaymentAsync(int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -232,12 +232,12 @@ namespace ExpenseManagementClient.PaymentServiceReference {
             return base.Channel.ViewSinglePaymentAsync(paymentId);
         }
         
-        public ExpenseManagementClient.PaymentServiceReference.PaymentModel[] ViewAllPayment() {
-            return base.Channel.ViewAllPayment();
+        public ExpenseManagementClient.PaymentServiceReference.PaymentModel[] ViewAllPayment(int userId) {
+            return base.Channel.ViewAllPayment(userId);
         }
         
-        public System.Threading.Tasks.Task<ExpenseManagementClient.PaymentServiceReference.PaymentModel[]> ViewAllPaymentAsync() {
-            return base.Channel.ViewAllPaymentAsync();
+        public System.Threading.Tasks.Task<ExpenseManagementClient.PaymentServiceReference.PaymentModel[]> ViewAllPaymentAsync(int userId) {
+            return base.Channel.ViewAllPaymentAsync(userId);
         }
     }
 }

@@ -10,6 +10,12 @@
 </head>
 <body>
     <!--#include file="~/static/Components/SharedNavbar.html"-->
+    <% 
+        if (ViewState["message"] != null)
+        {
+            Response.Write("<div class='alert alert-" + ViewState["status"] + " alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + "</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+        }
+    %>
     <form id="form1" class="container mt-4" runat="server">
         <div class="mb-3">
             <label for="payementDescription" class="form-label"><b>Payment Description</b></label>
@@ -20,13 +26,13 @@
         <div class="mb-3">
             <label for="paymentDate" class="form-label"><b>Payment Date</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
-            <asp:TextBox class="form-control" type="date" ID="textBoxPaymentDate" aria-describedby="expenseDate" runat="server"></asp:TextBox>
+            <asp:TextBox class="form-control" disabled type="date" ID="textBoxPaymentDate" aria-describedby="expenseDate" runat="server"></asp:TextBox>
             <div id="paymentDate" class="form-text">Enter the payment date</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPaymentAmount" class="form-label"><b>Payment Amount</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
-            <asp:TextBox class="form-control" type="number" ID="textBoxPaymentAmt" aria-describedby="expenseAmt" runat="server"></asp:TextBox>
+            <asp:TextBox class="form-control" disabled type="number" ID="textBoxPaymentAmt" aria-describedby="expenseAmt" runat="server"></asp:TextBox>
             <div id="paymentAmt" class="form-text">
                 Enter the payment amount
             </div>
@@ -35,7 +41,7 @@
         <div class="mb-3">
             <label for="paymentToUser" class="form-label"><b>Payment Receiver</b></label>
             <%--<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>--%>
-            <asp:TextBox class="form-control" ID="textBoxPaymentReceiver" aria-describedby="expenseDesc" runat="server"></asp:TextBox>
+            <asp:TextBox class="form-control" disabled ID="textBoxPaymentReceiver" aria-describedby="expenseDesc" runat="server"></asp:TextBox>
             <div id="paymentToUser" class="form-text">Enter the payment receiver.</div>
         </div>
 

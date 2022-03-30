@@ -46,17 +46,29 @@ namespace ExpenseManagementClient.Expense
 
             float expenseAmount = float.Parse(textBoxExpenseAmt.Text);
 
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
+
             ExpenseServiceReference.ExpenseModel expense = new ExpenseServiceReference.ExpenseModel()
             {
                 ExpenseId = id,
                 ExpenseDescription = expenseDescription,
                 ExpenseDate = expenseDate,
                 ExpenseAmount = expenseAmount,
-                ExpenseUserId = 1
+                ExpenseUserId = userId
             };
 
             ExpenseServiceReference.ExpenseModel newE = client.UpdateExpense(expense);
 
+            if(newE.ExpenseId == -1)
+            {
+                ViewState["message"] = "Error! While updating expense!";
+                ViewState["status"] = "danger";
+            }
+            else
+            {
+                ViewState["message"] = "Expense updated successfully!";
+                ViewState["status"] = "success";
+            }
             Debug.WriteLine(newE.ExpenseId);
             Debug.WriteLine(newE.ExpenseDescription);
             Debug.WriteLine(newE.ExpenseDate);

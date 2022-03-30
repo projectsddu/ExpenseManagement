@@ -27,12 +27,13 @@ namespace ExpenseManagementClient.Authentication
             }
             else
             {
-                bool status = Client.LoginUser(username, password);
+                int status = Client.LoginUser(username, password);
                 Debug.WriteLine("Here in service");
                 Debug.WriteLine(status);
-                if(status)
+                if(status != -1)
                 {
                     Response.Cookies["UserName"].Value = username.ToString();
+                    Response.Cookies["UserId"].Value = status.ToString();
                     Response.Redirect("/Expense/AddExpense.aspx");
                 }
                 else

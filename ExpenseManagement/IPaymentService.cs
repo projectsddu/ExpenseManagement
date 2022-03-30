@@ -23,6 +23,6 @@ namespace ExpenseManagement
         PaymentModel ViewSinglePayment(int paymentId);
 
         [OperationContract]
-        List<PaymentModel> ViewAllPayment();
+        List<PaymentModel> ViewAllPayment(int userId);
     }
 }

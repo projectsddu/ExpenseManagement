@@ -13,7 +13,8 @@ namespace ExpenseManagementClient.Expense
         protected void Page_Load(object sender, EventArgs e)
         {
             ExpenseServiceReference.ExpenseServiceClient client = new ExpenseServiceReference.ExpenseServiceClient();
-           expenses = client.ViewAllExpense();
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
+            expenses = client.ViewAllExpense(userId);
             //ViewState["expenses"] = expenses;
             //ViewState["expensesLength"]
         }

@@ -9,6 +9,12 @@
 </head>
 <body>
     <!--#include file="~/static/Components/SharedNavbar.html"-->
+    <% 
+        if (ViewState["message"] != null)
+        {
+            Response.Write("<div class='alert alert-" + ViewState["status"] + " alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + "</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+        }
+    %>
     <form id="form1" class="container mt-4" runat="server">
         <div class="alert alert-light" role="alert">
             <h3 class="alert-heading" style="color:black">Are you sure you want to delete this expense?</h3>

@@ -103,7 +103,7 @@ namespace ExpenseManagement
             return user;
         }
 
-        public bool LoginUser(string username, string password)
+        public int LoginUser(string username, string password)
         {
             try
             {
@@ -116,26 +116,28 @@ namespace ExpenseManagement
                 Debug.WriteLine(cmd.CommandText);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 int cnt = 0;
+                int userId = -1;
                 while(rdr.Read())
                 {
                     cnt++;
+                    userId = int.Parse(rdr["UserId"].ToString());
                 }
 
                 Debug.WriteLine("Rows:");
                 Debug.WriteLine(cnt);
                 if(cnt==0)
                 {
-                    return false;
+                    return userId;
                 }
                 else
                 {
-                    return true;
+                    return userId;
                 }
             }
             catch (Exception err)
             {
                 Debug.WriteLine(err.Message);
-                return false;
+                return -1;
             }
             
         }

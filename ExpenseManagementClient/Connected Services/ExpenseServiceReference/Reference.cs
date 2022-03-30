@@ -151,10 +151,10 @@ namespace ExpenseManagementClient.ExpenseServiceReference {
         System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel> ViewSingleExpenseAsync(int ExpenseId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseService/ViewAllExpense", ReplyAction="http://tempuri.org/IExpenseService/ViewAllExpenseResponse")]
-        ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense();
+        ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExpenseService/ViewAllExpense", ReplyAction="http://tempuri.org/IExpenseService/ViewAllExpenseResponse")]
-        System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync();
+        System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync(int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -216,12 +216,12 @@ namespace ExpenseManagementClient.ExpenseServiceReference {
             return base.Channel.ViewSingleExpenseAsync(ExpenseId);
         }
         
-        public ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense() {
-            return base.Channel.ViewAllExpense();
+        public ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[] ViewAllExpense(int userId) {
+            return base.Channel.ViewAllExpense(userId);
         }
         
-        public System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync() {
-            return base.Channel.ViewAllExpenseAsync();
+        public System.Threading.Tasks.Task<ExpenseManagementClient.ExpenseServiceReference.ExpenseModel[]> ViewAllExpenseAsync(int userId) {
+            return base.Channel.ViewAllExpenseAsync(userId);
         }
     }
 }

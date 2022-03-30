@@ -25,6 +25,6 @@ namespace ExpenseManagement
         ExpenseModel ViewSingleExpense(int ExpenseId);
 
         [OperationContract]
-        List<ExpenseModel> ViewAllExpense();
+        List<ExpenseModel> ViewAllExpense(int userId);
     }
 }

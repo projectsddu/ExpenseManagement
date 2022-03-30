@@ -39,16 +39,30 @@ namespace ExpenseManagementClient.Payment
             float paymentAmount = float.Parse(textBoxPaymentAmt.Text);
             string paymentToUser = textBoxPaymentReceiver.Text;
 
+            int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
+
             PaymentServiceReference.PaymentModel payment = new PaymentServiceReference.PaymentModel()
             {
                 PaymentId = id,
                 PaymentDescription = paymentDescription,
-                PaymentDate = paymentDate,
-                PaymentAmount = paymentAmount,
-                PaymentToUser = paymentToUser
+                //PaymentDate = paymentDate,
+                //PaymentAmount = paymentAmount,
+                PaymentFromUser = userId.ToString(),
+                //PaymentToUser = paymentToUser
             };
 
             PaymentServiceReference.PaymentModel newP = client.UpdatePayment(payment);
+
+            if(newP.PaymentId == -1)
+            {
+                ViewState["message"] = "Error! While updating payment!";
+                ViewState["status"] = "danger";
+            }
+            else
+            {
+                ViewState["message"] = "Payment updated successfully!";
+                ViewState["status"] = "success";
+            }
 
             Debug.WriteLine(newP.PaymentId);
             Debug.WriteLine(newP.PaymentDescription);
