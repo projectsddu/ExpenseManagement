@@ -58,6 +58,69 @@ namespace ExpenseManagement
                 return username;
             }
         }
+
+        public UserModel getUserObj(int userId)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            using (connection)
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT * FROM UserTable WHERE UserId = " + userId;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                UserModel user = new UserModel();
+
+                while(rdr.Read())
+                {
+                    user.UserId = userId;
+                    user.UserName = rdr["UserName"].ToString();
+                    user.UserCredit = float.Parse(rdr["UserCredit"].ToString());
+                    user.UserDebit = float.Parse(rdr["UserDebit"].ToString());
+                }
+
+                return user;
+
+            }
+        }
+
+        public bool updateUser(UserModel user)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            using (connection)
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "UPDATE UserTable SET UserCredit = @credit, UserDebit = @debit WHERE UserId = @userid";
+
+                SqlParameter p1 = new SqlParameter("@credit", user.UserCredit);
+                SqlParameter p2 = new SqlParameter("@debit", user.UserDebit);
+                SqlParameter p3 = new SqlParameter("@userid", user.UserId);
+
+                cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+                cmd.Parameters.Add(p3);
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if(rows <= 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+       
         public PaymentModel AddPayment(PaymentModel payment)
         {
             try
@@ -70,43 +133,59 @@ namespace ExpenseManagement
                 p.PaymentAmount = payment.PaymentAmount;
 
 
-                //ExpenseModel e = new ExpenseModel();
-                //e.ExpenseDescription = expense.ExpenseDescription;
-                //e.ExpenseDate = DateTime.Now;
-                //e.ExpenseAmount = expense.ExpenseAmount;
-                //// Get user id from cookies.
-                //e.ExpenseUserId = 1;
+                UserModel sender_user = getUserObj(int.Parse(payment.PaymentFromUser));
+                UserModel receiver_user = getUserObj(int.Parse(p.PaymentToUser));
 
-                SqlConnection connection = new SqlConnection(connectionString);
+                Debug.WriteLine(sender_user.UserCredit);
+                Debug.WriteLine(sender_user.UserDebit);
 
-                using (connection)
+                float netAmt = sender_user.UserCredit - sender_user.UserDebit;
+
+                if(netAmt < payment.PaymentAmount)
                 {
-                    connection.Open();
+                    return new PaymentModel() { PaymentId = -1 };
+                }
+                else
+                {
+                    SqlConnection connection = new SqlConnection(connectionString);
 
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = connection;
-                    cmd.CommandText = "INSERT INTO Payment (PaymentDescription, PaymentAmount, PaymentDate, PaymentFromUser,PaymentToUser) VALUES (@EDescription, @EAmount, @EDate, @EFromUser,@EToUser)";
-
-                    SqlParameter p1 = new SqlParameter("@EDescription", p.PaymentDescription);
-                    SqlParameter p2 = new SqlParameter("@EAmount", p.PaymentAmount);
-                    SqlParameter p3 = new SqlParameter("@EDate", p.PaymentDate);
-                    SqlParameter p4 = new SqlParameter("@EFromUser", p.PaymentFromUser);
-                    SqlParameter p5 = new SqlParameter("@EToUser", p.PaymentToUser);
-
-                    cmd.Parameters.Add(p1);
-                    cmd.Parameters.Add(p2);
-                    cmd.Parameters.Add(p3);
-                    cmd.Parameters.Add(p4);
-                    cmd.Parameters.Add(p5);
-
-                    int rows = cmd.ExecuteNonQuery();
-                    if (rows != 0)
+                    using (connection)
                     {
-                        return payment;
-                    }
-                    else
-                    {
-                        return new PaymentModel() { PaymentId= -1 };
+                        connection.Open();
+
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = "INSERT INTO Payment (PaymentDescription, PaymentAmount, PaymentDate, PaymentFromUser,PaymentToUser) VALUES (@EDescription, @EAmount, @EDate, @EFromUser,@EToUser)";
+
+                        SqlParameter p1 = new SqlParameter("@EDescription", p.PaymentDescription);
+                        SqlParameter p2 = new SqlParameter("@EAmount", p.PaymentAmount);
+                        SqlParameter p3 = new SqlParameter("@EDate", p.PaymentDate);
+                        SqlParameter p4 = new SqlParameter("@EFromUser", p.PaymentFromUser);
+                        SqlParameter p5 = new SqlParameter("@EToUser", p.PaymentToUser);
+
+                        cmd.Parameters.Add(p1);
+                        cmd.Parameters.Add(p2);
+                        cmd.Parameters.Add(p3);
+                        cmd.Parameters.Add(p4);
+                        cmd.Parameters.Add(p5);
+
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows != 0)
+                        {
+                            Debug.WriteLine(payment.PaymentAmount);
+                            sender_user.UserDebit += payment.PaymentAmount;
+                            receiver_user.UserCredit += payment.PaymentAmount;
+                            Debug.WriteLine(sender_user.UserDebit);
+                            Debug.WriteLine(receiver_user.UserCredit);
+                            updateUser(sender_user);
+                            updateUser(receiver_user);
+
+                            return payment;
+                        }
+                        else
+                        {
+                            return new PaymentModel() { PaymentId= -1 };
+                        }
                     }
                 }
             }

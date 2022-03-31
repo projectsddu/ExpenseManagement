@@ -35,9 +35,9 @@ namespace ExpenseManagementClient.Payment
             id = Convert.ToInt32(Request.QueryString["id"]);
 
             string paymentDescription = textBoxPaymentDesc.Text;
-            DateTime paymentDate = Convert.ToDateTime(textBoxPaymentDate.Text);
-            float paymentAmount = float.Parse(textBoxPaymentAmt.Text);
-            string paymentToUser = textBoxPaymentReceiver.Text;
+            //DateTime paymentDate = Convert.ToDateTime(textBoxPaymentDate.Text);
+            //float paymentAmount = float.Parse(textBoxPaymentAmt.Text);
+            //string paymentToUser = textBoxPaymentReceiver.Text;
 
             int userId = int.Parse(Request.Cookies["UserId"].Value.ToString());
 

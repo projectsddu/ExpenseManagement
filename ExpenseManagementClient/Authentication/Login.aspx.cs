@@ -23,7 +23,8 @@ namespace ExpenseManagementClient.Authentication
             
             if(username==""||password=="")
             {
-                ViewState["Error"] = "All fields are required";
+                ViewState["message"] = "All fields are required!";
+                ViewState["status"] = "danger";
             }
             else
             {
@@ -34,11 +35,12 @@ namespace ExpenseManagementClient.Authentication
                 {
                     Response.Cookies["UserName"].Value = username.ToString();
                     Response.Cookies["UserId"].Value = status.ToString();
-                    Response.Redirect("/Expense/AddExpense.aspx");
+                    Response.Redirect("/Home/Home.aspx");
                 }
                 else
                 {
-                    ViewState["Error"] = "Please provide correct credentials.";
+                    ViewState["message"] = "Wrong username or password!";
+                    ViewState["status"] = "danger";
                 }
             }
 

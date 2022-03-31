@@ -10,6 +10,12 @@
 </head>
 <body>
     <!--#include file="~/static/Components/LoginNavbar.html"-->
+    <% 
+        if (ViewState["message"] != null)
+        {
+            Response.Write("<div class='alert alert-" + ViewState["status"] + " alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + "</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+        }
+    %>
     <h1  class="container mt-2">Login</h1>
     <form id="form1" class="container mt-4" runat="server">
         <div>
